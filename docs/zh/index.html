@@ -12,13 +12,34 @@
   </head>
 
   <body>
+    <nav class="nav">
+      
+    </nav>
+
+    <!-- This div element includes all content in the docxified page -->
     <div id="app"></div>
 
+    <!-- Docsify Settings -->
     <script>
     window.$docsify = {
       loadSidebar: true,
       name: '',
-      repo: ''
+      repo: '',
+      plugins: [
+        function(hook) {
+          var footer = `
+            <footer class="foot">
+              <p>@2024  |  BY: <a href="https://github.com/JustAlkaid" target="_blank">Alkaid</a></p>
+              <p>Powered by: <a href="https://docsify.js.org/" target="_blank">Docsify v4</a></p>
+              <p>All Rights Reserved.</p>
+            </footer>
+          `;
+
+          hook.afterEach(function(html) {
+            return html + footer;
+          });
+        }
+      ]
     }
     </script>
 
