@@ -1,0 +1,98 @@
+@charset "utf-8";
+
+//变量
+@navMargin: 7%;                                 //导航栏左右边距
+
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+/* 导航栏的总样式 */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 70px;
+    background-color: #333333;
+    color: #ffffff;
+    font-size: 20px;
+    z-index: 1000;
+    padding: 0; 
+    margin: 0;
+}
+
+#logo {
+    max-width: 60px;
+    height: auto;
+    border-radius: 50%;
+    border: 2px solid #ffffff;
+}
+
+.navtitle, .navlinks {
+    display: flex;
+    align-items: center;
+}
+
+.navtitle {
+    gap: 15px; 
+    margin-left: @navMargin;
+}
+
+.navlinks {
+    gap: 20px;
+    margin-right: @navMargin;
+}
+
+.navbar a {
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 15px;
+}
+
+.navbar a:hover {
+    background-color: #444;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropbtn {
+    background-color: #333;
+    color: white;
+    padding: 10px 15px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+.dropbtn:hover {
+    background-color: #444;
+}
+
+.dropcontent {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropcontent a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropcontent a:hover {
+    background-color: #f1f1f1;
+}
+
+.dropdown:hover .dropcontent {
+    display: block;
+}
