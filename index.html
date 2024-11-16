@@ -13,7 +13,7 @@
         <link rel="stylesheet/less" type="text/css" href="stylesheet/less/index.less">
     </head>
 
-    <body>
+    <body class="day">
 
         <nav class="navbar">
             <div class="navtitle">
@@ -62,14 +62,18 @@
         <!-- Compile less files -->
         <script src="https://cdn.jsdelivr.net/npm/less@4" ></script>
 
-        <!-- canvas-nest.js for all the triangles in the background -->
+        <!-- Canvas-nest.js for all the triangles in the background -->
         <script src="https://cdn.bootcss.com/canvas-nest.js/2.0.4/canvas-nest.js" 
                 color="0,0,0"
                 pointcolor="0,0,0"
                 opacity="0.75"
                 count="75"
                 zIndex="-1"
-                type="text/javascript"></script>
+                type="text/javascript">
+        </script>
+
+        <!-- Day-night toggle -->
+        <script src="/js/day_night_toggle.js"></script>
 
     </body>
 
