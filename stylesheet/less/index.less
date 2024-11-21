@@ -37,6 +37,11 @@ body.night::before {
 /* 主内容区域 */
 .content {
     flex: 1;
+    display: flex;
+    flex-direction: column; 
+    justify-content: center; 
+    align-items: center; 
+    text-align: center; 
 }
 
 /* 页脚样式 */
@@ -44,4 +49,16 @@ footer {
     text-align: center;
     padding: 10px 0;
     margin-top: auto;
+}
+
+body.day {
+    footer {
+        color: #6b6b6b;
+    }
+}
+
+body.night {
+    footer {
+        color: #000000;
+    }
 }
