@@ -1,7 +1,7 @@
 @charset "utf-8";
 
 //变量
-@navMargin: 7%;                                       //导航栏左右边距
+@navMargin: 3%;                                       //导航栏左右边距
 @logoBorderColorDay: #ffffff;                       //日间模式logo边框颜色
 @logoBorderColorNight: #000000;                     //夜间模式logo边框颜色
 @navBarBgColorDay: rgba(51, 51, 51, 0.3);           //日间模式导航栏背景颜色
@@ -16,14 +16,16 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 100%;
+    width: calc(100% - 300px);
     height: 70px;
     font-size: 20px;
     z-index: 1000;
     padding: 0; 
     margin: 0;
     transition: background-color 0.3s ease;
-    position: fixed;
+    position: fixed; 
+    top: 0; 
+    left: 300px; 
 
     #logo {
         max-width: 60px;

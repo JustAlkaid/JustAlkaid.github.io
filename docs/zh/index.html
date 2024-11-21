@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh" dir="auto">
+<html lang="cn" dir="auto">
 
   <head>
     <meta charset="UTF-8">
@@ -7,14 +7,48 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="description" content="Documents Homepage">
     <meta name="author" name="Alkaid">
+    <meta name="keywords" content="HTML CSS JavaScript JS docsify MD Markdown">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css">
+    <link id="theme-style" rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css">
+    <link rel="stylesheet/less" type="text/css" href="stylesheet/less/nav.less">
   </head>
 
-  <body>
-    <nav class="nav">
-      
-    </nav>
+  <body class="day">
+    <br>
+    <nav class="navbar">
+      <div class="navtitle">
+          <img src="https://avatars.githubusercontent.com/u/72213408" alt="瑶光的头像！" id="logo">
+          <a class="headline" href="https://github.com/JustAlkaid">Alkaid</a>
+          <button id="themetoggleday">
+              <img src="/assets/svg/index/sun.svg" alt="日间模式" id="sun">
+          </button>
+          <button id="themetogglenight">
+              <img src="/assets/svg/index/moon.svg" alt="夜间模式" id="moon">
+          </button>
+          <div class="dropdown">
+              <a href="" target="_blank" class="dropbtn">语言</a>
+              <div class="dropcontent">
+                  <a href="/index.html">简体中文</a>
+                  <a href="">English</a>
+              </div>
+          </div>
+      </div>
+      <div class="navlinks">
+          <a href="/index.html">主页</a>
+          <a href="index.html">文章</a>
+          <a href="">标签</a>
+          <a href="">项目</a>
+          <div class="dropdown">
+              <a href="" target="_blank" class="dropbtn">宝箱</a>
+              <div class="dropcontent">
+                  <a href="">Canvas-Nest</a>
+              </div>
+          </div>
+          <a href="">随机</a>
+      </div>
+      <!-- <a href="#/">EN</a>
+      <a href="#/zh-cn/">中文</a> -->
+  </nav>
 
     <!-- This div element includes all content in the docxified page -->
     <div id="app"></div>
@@ -45,8 +79,19 @@
 
     <!-- Docsify v4 -->
     <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
+
     <!-- Intercept some special link -->
-    <script src="../../js/docsify-exit.js"></script>
+    <script src="/js/docsify-exit.js"></script>
+
+    <!-- Day-night toggle -->
+    <script src="js/day_night_toggle.js"></script>
+
+    <!-- Compile less files -->
+    <script src="https://cdn.jsdelivr.net/npm/less@4" ></script>
+
+    <!-- Dropdown Menu -->
+    <script src="/js/navdropdown.js"></script>
+
   </body>
 
 </html>

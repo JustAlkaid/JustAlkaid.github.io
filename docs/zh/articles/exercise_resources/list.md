@@ -31,7 +31,7 @@
 [Accoding C5-H 九连环](https://accoding.buaa.edu.cn/contest-ng/index.html#/1126/problems)  
 
 ### 快速幂
-[Leetcode. #50 Pow(x, n)](https://leetcode.cn/problems/powx-n/)（模板）  
+[Leetcode #50 Pow(x, n)](https://leetcode.cn/problems/powx-n/)（模板）  
 [洛谷 P1226 【模板】快速幂](https://www.luogu.com.cn/problem/P1226)（模板）  
 
 ### 动态规划
