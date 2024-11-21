@@ -2,6 +2,7 @@
 
 //变量
 @navMargin: 7%;                                       //导航栏左右边距
+@navHeight: 70px;                                     //导航栏高度   
 @logoBorderColorDay: #ffffff;                       //日间模式logo边框颜色
 @logoBorderColorNight: #000000;                     //夜间模式logo边框颜色
 @navBarBgColorDay: rgba(51, 51, 51, 0.3);           //日间模式导航栏背景颜色
@@ -17,13 +18,14 @@
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    height: 70px;
+    height: @navHeight;
     font-size: 20px;
     z-index: 1000;
     padding: 0; 
     margin: 0;
     transition: background-color 0.3s ease;
     position: fixed;
+    top: 0;
 
     #logo {
         max-width: 60px;
@@ -99,6 +101,10 @@
         opacity: 1;
         transform: translateY(0);
     }
+}
+
+.navbar-placeholder {
+    height: @navHeight;
 }
 
 /* 日间模式 */
