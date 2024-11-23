@@ -33,7 +33,7 @@ File Structure:
 ├── js (all javascript used in multiple pages) 
 |   └── ...  
 |
-├── stylesheet (ll stylesheets used in multiple pages)  
+├── stylesheet (all stylesheets used in multiple pages)  
 |   ├── css  
 |   |   └── ...  
 |   └── less  
