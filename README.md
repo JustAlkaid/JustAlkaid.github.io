@@ -2,7 +2,7 @@
 A Simple Docsify Static Page for Homework.
 
 Contributors:
-JustAlkaid (Owner)
+JustAlkaid (Owner), Lucio-ball
 
 File Structure:
 ```
@@ -39,6 +39,7 @@ File Structure:
 |   └── less  
 |       └── ...  
 |
+├── 404.html (404 page)
 ├── index.html (the entry page for the whole website)
 ├── LICENSE  
 └── .nojekyll  
