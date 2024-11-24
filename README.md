@@ -39,6 +39,9 @@ File Structure:
 |   └── less  
 |       └── ...  
 |
+├── treasure_chest (pages or projects used in this website, displayed in the treasure_chest dropdown menu)
+|   └── ...
+|
 ├── 404.html (404 page)
 ├── index.html (the entry page for the whole website)
 ├── LICENSE  
