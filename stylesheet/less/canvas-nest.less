@@ -1,0 +1,36 @@
+@charset "utf-8";
+
+html, body{
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+}
+
+body::before{
+    content: "";
+    position: fixed; 
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    z-index: -2;
+}
+
+body.day::before {
+    background-image: url("/assets/img/index/background_day.jpg");
+}
+
+body.night::before {
+    background-image: url("/assets/img/index/background_night.jpg");
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #000000;
+}
