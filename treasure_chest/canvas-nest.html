@@ -24,9 +24,11 @@
                     <button id="themetogglenight">
                         <img src="/assets/svg/index/moon.svg" alt="夜间模式" id="moon">
                     </button>
-                    <button id="return-home">
-                        <img src="/assets/svg/home.svg" alt="回到主页">
-                    </button>
+                    <a href="/index.html">
+                        <button id="return-home">
+                            <img src="/assets/svg/home.svg" alt="回到主页">
+                        </button>
+                    </a>
                 </div>
             </nav>
 
@@ -47,14 +49,15 @@
                 opacity="0.9"
                 count="100"
                 zIndex="-1"
-                type="text/javascript">
+                type="text/javascript"
+                async>
         </script>
 
         <!-- Day-night toggle -->
-        <script src="/js/day_night_toggle.js"></script>
+        <script src="/js/day_night_toggle.js" async></script>
 
         <!-- Sidebar Display -->
-        <script src="/js/sidebar.js"></script>
+        <script src="/js/sidebar.js" async></script>
 
     </body>
 
