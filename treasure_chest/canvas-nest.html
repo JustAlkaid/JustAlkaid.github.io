@@ -16,6 +16,20 @@
 
         <div class="wrapper">
 
+            <nav>
+                <div id="toggle-container">
+                    <button id="themetoggleday">
+                        <img src="/assets/svg/index/sun.svg" alt="日间模式" id="sun">
+                    </button>
+                    <button id="themetogglenight">
+                        <img src="/assets/svg/index/moon.svg" alt="夜间模式" id="moon">
+                    </button>
+                    <button id="return-home">
+                        <img src="/assets/svg/home.svg" alt="回到主页">
+                    </button>
+                </div>
+            </nav>
+
             <footer class="foot">
                 <p>@2024  |  BY: <a href="https://github.com/JustAlkaid" target="_blank">Alkaid</a></p>
                 <p>All Rights Reserved.</p>
@@ -28,16 +42,19 @@
 
         <!-- Canvas-nest.js for all the triangles in the background -->
         <script src="https://cdn.bootcss.com/canvas-nest.js/2.0.4/canvas-nest.js" 
-                color="255,255,255"
+                color="0,0,0"
                 pointcolor="0,0,0"
-                opacity="0.75"
-                count="75"
+                opacity="0.9"
+                count="100"
                 zIndex="-1"
                 type="text/javascript">
         </script>
 
         <!-- Day-night toggle -->
         <script src="/js/day_night_toggle.js"></script>
+
+        <!-- Sidebar Display -->
+        <script src="/js/sidebar.js"></script>
 
     </body>
 

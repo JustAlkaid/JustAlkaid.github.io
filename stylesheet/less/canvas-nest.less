@@ -32,5 +32,48 @@ body.night::before {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    background-color: #000000;
+}
+
+footer {
+    text-align: center;
+    padding: 10px 0;
+    margin-top: auto;
+}
+
+#toggle-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+body.day {
+    footer {
+        color: #6b6b6b;
+    }
+
+    #themetoggleday {
+        display: none;
+    }
+
+    #themetogglenight {
+        background-color: #b8b8b8;
+        display: block;
+    }
+}
+
+body.night {
+    footer {
+        color: #000000;
+    }
+
+    #themetoggleday {
+        background-color: #6b6b6b;
+        display: block;
+    }
+
+    #themetogglenight {
+        display: none;
+    }
 }
