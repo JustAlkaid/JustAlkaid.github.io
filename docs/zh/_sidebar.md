@@ -10,19 +10,19 @@
     * 1.
 
 * 程序设计哲学
-    * 把功能拆分为函数
-    * 如何写出可维护的代码
+    * [把功能拆分为函数](./articles/philosophy/break_into_functions.md)
+    * [如何写出可维护的代码](./articles/philosophy/code_properly.md)
 
 * 有用的小办法
-    * 快捷键
-    * 将printf用于调试
-    * 用断点让你的程序暂时停下来
-    * 标准输入输出的重定向
+    * [快捷键](./articles/useful_tips/hotkeys.md)
+    * [将printf用于调试](./articles/useful_tips/use_of_printf)
+    * [用断点让你的程序暂时停下来](./articles/useful_tips/use_of_breakpoint)
+    * [标准输入输出的重定向](./articles/useful_tips/redirect.md)
 
 * 考场小技巧
-    * 如何审题
-    * 不同的题型有哪些？
-    * 骗分与面向结果编程
+    * [如何审题](./articles/in_the_classroom/analyzing_the_question.md)
+    * [不同的题型有哪些？](./articles/in_the_classroom/different_types.md)
+    * [骗分与面向结果编程](./articles/in_the_classroom/earn_grades.md)
 
 * 在哪里找到更多学习资料？
     * [外链表](./articles/study_resources/link.md)
