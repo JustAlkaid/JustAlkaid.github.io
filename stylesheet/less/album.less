@@ -1,0 +1,131 @@
+@charset "utf-8";
+
+@marginTopStart: 350px;
+@marginTopEnd: 220px;
+
+body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    position: relative;
+}
+
+.mid{
+    height: 100vh;
+    width: 100vw;
+}
+
+.banner{
+    list-style: none;
+    position: absolute;
+    padding: 0;
+    margin: auto;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 1150px;
+    height: 421px;
+    animation: imgload1 1s linear;
+    margin-top: @marginTopEnd;
+
+    li {
+        float: left;
+        position: absolute;
+        left: 0px;
+        transition-duration: 0.4s;
+        overflow: hidden;
+    }
+
+    img{
+        width: 750px; 
+        height: auto; 
+        transition: all .5s;
+    }
+    img:hover{
+        transform: scale(1.1);
+    }
+
+    div{
+        width: 20px;
+        height: 20px;
+        position: absolute;
+        border-radius: 50%;
+        background: rgb(123, 168, 175);
+        float: left;
+        bottom: -100px;
+    }
+}
+
+/* 点的容器样式 */
+#dots-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    bottom: 15%;
+    width: 100%;
+}
+
+/* 点的样式 */
+.dot {
+    width: 10px; 
+    height: 10px; 
+    background-color: rgb(123, 168, 175); 
+    border-radius: 50%;
+    margin: 0 5px;
+    transition: background-color 0.3s;
+}
+.dot.active {
+    background-color: #333; 
+}
+
+footer {
+    text-align: center;
+    padding: 10px 0;
+    margin-top: auto;
+}
+
+body::before{
+    content: "";
+    position: fixed; 
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    z-index: -2;
+    filter: blur(5px);
+}
+
+body.day {
+    footer {
+        color: #6b6b6b;
+    }
+}
+body.day::before {
+    background-image: url("/assets/img/index/background_day.jpg");
+}
+
+body.night {
+    footer {
+        color: #000000;
+    }
+}
+body.night::before {
+    background-image: url("/assets/img/index/background_night.jpg");
+}
+
+@keyframes imgload1{
+    0%{
+        opacity: 0;
+        margin-top: @marginTopStart;
+    }100%{
+        opacity: 1;
+        margin-top: @marginTopEnd;
+    }
+}
+
+

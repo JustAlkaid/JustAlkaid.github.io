@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh_cn">
+<html lang="cn" dir="auto">
 
     <head>
         <meta charset="UTF-8">
@@ -10,11 +10,10 @@
         <meta name="keywords" content="HTML CSS JavaScript JS">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
         <link rel="stylesheet/less" type="text/css" href="/stylesheet/less/nav.less">
-        <link rel="stylesheet" href="/stylesheet/css/body.css">
-        <link rel="stylesheet" href="/stylesheet/css/album.css">
+        <link rel="stylesheet/less" type="text/css" href="/stylesheet/less/album.less">
     </head>
 
-    <body>
+    <body class="day">
 
         <nav class="navbar">
             <div class="navtitle">
@@ -42,13 +41,16 @@
                 <div class="dropdown">
                     <a href="" target="_blank" class="dropbtn">宝箱</a>
                     <div class="dropcontent">
-                        <a href="treasure_chest/canvas-nest.html">Canvas-Nest</a>
-                        <a href="treasure_chest/404.html">404页</a>
+                        <a href="/treasure_chest/canvas-nest.html">Canvas-Nest</a>
+                        <a href="/treasure_chest/404.html">404页</a>
+                        <a href="/treasure_chest/album.html">相册</a>
                     </div>
                 </div>
                 <a href="javascript:void(0);" id="random-link">随机</a>
             </div>
         </nav>
+
+        <!-- <div class="navbar-placeholder"></div> -->
 
         <div class="mid">
             <ul id="banner" class="banner"></ul>
@@ -64,7 +66,7 @@
         <script src="https://cdn.jsdelivr.net/npm/less@4" ></script>
 
         <!-- Animation of the Album -->
-        <script src="../js/album.js"></script>
+        <script src="/js/album.js"></script>
 
         <!-- Day-night toggle -->
         <script src="/js/day_night_toggle.js" async></script>

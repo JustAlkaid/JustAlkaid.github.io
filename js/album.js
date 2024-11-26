@@ -13,8 +13,6 @@ window.onload = function(){
 
         lbimg.src = "/assets/img/index/album/pic" + i + ".jpg";
 
-        lbimg.style.width = "750px"
-        lbimg.style.height = "421px"
         lbli.appendChild(lbimg);
 
         banner.appendChild(lbli);
