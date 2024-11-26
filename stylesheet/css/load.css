@@ -1,0 +1,436 @@
+.box {
+
+    position: relative;
+    height: 200px;
+    width: 200px;
+    margin: auto;
+    margin-top: 100px;
+    text-align: center;
+    animation: bo 2s;
+    animation-delay: 10s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes bo {
+
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
+}
+
+body {
+    background-color: black;
+    animation: bd 2s;
+    animation-fill-mode: forwards;
+    animation-delay: 5.5s;
+    overflow: hidden;
+}
+
+@keyframes bd {
+
+    0% {
+        background-color: black;
+    }
+
+    100% {
+        background-color: white;
+    }
+
+}
+
+.sq {
+
+    display: inline-block;
+    border: 10px white solid;
+    transform: rotate(45deg);
+    width: 150px;
+    height: 150px;
+    top: 100px;
+    left: 15px;
+    position: absolute;
+    z-index: 5;
+    animation: sq 7.5s;
+    animation-fill-mode: forwards;
+
+}
+
+@keyframes sq {
+
+    0% {
+        transform: scale(0.2);
+    }
+
+    10% {
+        transform: scale(1);
+    }
+
+    15% {
+        transform: rotate(45deg);
+    }
+
+    55% {
+        transform: rotate(405deg);
+        border-color: white;
+    }
+
+    60% {
+        transform: rotate(405deg);
+    }
+
+    100% {
+        transform: rotate(765deg);
+        border-color: black;
+    }
+
+}
+
+
+.prts_word {
+
+    color: rgb(129, 129, 129);
+    font-size: 80px;
+    height: 150px;
+    margin-left: auto;
+    margin-right: auto;
+    position: absolute;
+    top: 70px;
+    left: 30px;
+    z-index: 1;
+    animation: wo 9s;
+    animation-fill-mode: forwards;
+
+}
+
+@keyframes wo {
+
+    0% {
+        transform: scale(0.01);
+    }
+
+    2.7% {
+        transform: scale(0.01);
+    }
+
+    24% {
+        transform: scale(1);
+        color: white;
+    }
+
+    90% {
+        color: rgb(0, 0, 0);
+    }
+
+    100% {
+        color: rgb(133, 133, 133);
+    }
+
+}
+
+.r_i {
+
+    color: aliceblue;
+    font-size: 25px;
+    height: 150px;
+    top: 116px;
+    left: 47px;
+    position: absolute;
+    z-index: 10;
+    text-align: center;
+    animation: wo1 5.5s;
+    animation-fill-mode: forwards;
+
+}
+
+@keyframes wo1 {
+
+    0% {
+        transform: scale(0.01);
+    }
+
+    5% {
+        transform: scale(0.01);
+    }
+
+    54% {
+        transform: scale(1);
+    }
+
+    90% {
+        color: white;
+    }
+
+    100% {
+        color: black;
+    }
+
+}
+
+
+span {
+    text-decoration-line: underline;
+    text-decoration-color: inherit;
+    text-decoration-style: double;
+}
+
+.left,
+.right {
+
+    background-color: rgb(255, 237, 42);
+    position: absolute;
+    width: 855px;
+    height: 3px;
+    top: 650px;
+    box-shadow: none;
+    animation-delay: 6s;
+
+}
+
+.left {
+
+    left: 0;
+    animation: line-l 11s;
+
+}
+
+.right {
+
+    right: 0;
+    animation: line-r 11s;
+
+}
+
+@keyframes line-l {
+
+    from {
+        left: -700px;
+    }
+
+    to {
+        left: 0;
+        background-color: rgb(255, 221, 0);
+    }
+
+}
+
+@keyframes line-r {
+
+    from {
+        right: -700px;
+    }
+
+    to {
+        right: 0;
+        background-color: rgb(255, 221, 0);
+    }
+
+}
+
+.boxx {
+    position: relative;
+    height: 10px;
+    width: 10px;
+    margin: 0 auto;
+}
+
+.logoo {
+
+    position: absolute;
+    height: 130px;
+    width: 130px;
+    top: -170px;
+    left: -50px;
+    animation: lo 10s;
+    animation-fill-mode: forwards;
+
+}
+
+@keyframes lo {
+    0% {
+        background-image: url(./pic/Logo_罗德岛白.png);
+        background-repeat: no-repeat;
+    }
+
+    3% {
+        opacity: 1;
+    }
+
+    4% {
+        opacity: 0.3;
+    }
+
+    5% {
+        opacity: 1;
+    }
+
+    6% {
+        opacity: 0.3;
+    }
+
+    13% {
+        opacity: 1;
+    }
+
+    14% {
+        opacity: 0.3;
+    }
+
+    15% {
+        opacity: 1;
+    }
+
+    16% {
+        opacity: 0.3;
+    }
+
+    30% {
+        opacity: 1;
+    }
+
+    31% {
+        opacity: 0.3;
+    }
+
+    32% {
+        opacity: 1;
+    }
+
+    33% {
+        opacity: 0.3;
+    }
+
+    40% {
+        opacity: 1;
+    }
+
+    41% {
+        opacity: 0.3;
+    }
+
+    42% {
+        opacity: 1;
+    }
+
+    43% {
+        opacity: 0.3;
+    }
+
+    55% {
+        background-image: url(./pic/Logo_罗德岛白.png);
+        top: -170px;
+        background-repeat: no-repeat;
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    100% {
+        background-image: url(./pic/Logo_罗德岛.png);
+        background-repeat: no-repeat;
+        top: -400px;
+        transform: scale(6);
+        opacity: 0.1;
+    }
+}
+
+.bbo {
+    position: relative;
+    height: 40px;
+    width: 100px;
+    background-color: rgb(0, 0, 0);
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 335px;
+    overflow: hidden;
+    animation: co 2s;
+    animation-fill-mode: forwards;
+    animation-delay: 5.5s;
+}
+
+@keyframes co {
+    from {
+        background-color: black;
+    }
+
+    to {
+        background-color: white;
+    }
+
+}
+
+.bai {
+
+    position: fixed;
+    color: rgb(255, 255, 255);
+    font-size: 35px;
+    top: 630px;
+    animation: co1 2s;
+    animation-delay: 5.5s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes co1 {
+    from {
+        color: white;
+    }
+
+    to {
+        color: black;
+    }
+}
+
+.nub1,
+.nub2,
+.nub3 {
+    position: absolute;
+    color: rgb(183, 183, 183);
+    font-size: 35px;
+    top: -5px;
+}
+
+.nub1 {
+    right: 0;
+    animation: ro 1s 10 linear;
+    animation-fill-mode: forwards;
+}
+
+.nub2 {
+    right: 25px;
+    animation: ro1 10s linear;
+    animation-fill-mode: forwards;
+}
+
+.nub3 {
+    right: 50px;
+    animation: ro1 10.5s linear;
+    animation-fill-mode: forwards;
+}
+
+@keyframes ro {
+
+    from {
+        top: -5px;
+        color: rgb(183, 183, 183);
+    }
+
+    to {
+        top: -425px;
+        color: rgb(65, 65, 65);
+    }
+
+}
+
+@keyframes ro1 {
+
+    from {
+        color: rgb(183, 183, 183);
+    }
+
+    to {
+        top: -472px;
+        color: rgb(65, 65, 65);
+    }
+
+}
