@@ -38,15 +38,16 @@
                 <div class="navlinks">
                     <a href="/index.html">主页</a>
                     <a href="/docs/zh/index.html">文章</a>
-                    <a href="">标签</a>
-                    <a href="">项目</a>
+                    <a href="/tags.html">标签</a>
+                    <a href="https://github.com/JustAlkaid/JustAlkaid.github.io">项目</a>
                     <div class="dropdown">
                         <a href="" target="_blank" class="dropbtn">宝箱</a>
                         <div class="dropcontent">
-                            <a href="">Canvas-Nest</a>
+                            <a href="treasure_chest/canvas-nest.html">Canvas-Nest</a>
+                            <a href="treasure_chest/404.html">404页</a>
                         </div>
                     </div>
-                    <a href="">随机</a>
+                    <a href="javascript:void(0);" id="random-link">随机</a>
                 </div>
             </nav>
 
@@ -72,7 +73,6 @@
         <!-- Compile less files -->
         <script src="https://cdn.jsdelivr.net/npm/less@4" ></script>
 
-
         <!-- Canvas-nest.js for all the triangles in the background -->
         <script src="https://cdn.bootcss.com/canvas-nest.js/2.0.4/canvas-nest.js" 
                 color="0,0,0"
@@ -80,14 +80,18 @@
                 opacity="0.75"
                 count="75"
                 zIndex="-1"
-                type="text/javascript">
+                type="text/javascript"
+                async>
         </script>
 
         <!-- Day-night toggle -->
-        <script src="/js/day_night_toggle.js"></script>
+        <script src="/js/day_night_toggle.js" async></script>
 
         <!-- Dropdown Menu -->
-        <script src="js/navdropdown.js"></script>
+        <script src="js/navdropdown.js" async></script>
+
+        <!-- Random Article Script -->
+        <script src="/js/random_article.js" async></script>
 
         <script src="/js/lazyload.js"></script>
 

@@ -14,7 +14,7 @@
   </head>
 
   <body class="day">
-    <br>
+
     <nav class="navbar">
       <div class="navtitle">
           <img src="https://avatars.githubusercontent.com/u/72213408" alt="瑶光的头像！" id="logo">
@@ -35,16 +35,17 @@
       </div>
       <div class="navlinks">
           <a href="/index.html">主页</a>
-          <a href="index.html">文章</a>
-          <a href="">标签</a>
-          <a href="">项目</a>
+          <a href="/docs/zh/index.html">文章</a>
+          <a href="/tags.html">标签</a>
+          <a href="https://github.com/JustAlkaid/JustAlkaid.github.io">项目</a>
           <div class="dropdown">
               <a href="" target="_blank" class="dropbtn">宝箱</a>
               <div class="dropcontent">
-                  <a href="">Canvas-Nest</a>
+                <a href="treasure_chest/canvas-nest.html">Canvas-Nest</a>
+                <a href="treasure_chest/404.html">404页</a>
               </div>
           </div>
-          <a href="">随机</a>
+          <a href="javascript:void(0);" id="random-link">随机</a>
       </div>
   </nav>
 
@@ -78,17 +79,20 @@
     <!-- Docsify v4 -->
     <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
 
+    <!-- Compile less files -->
+    <script src="https://cdn.jsdelivr.net/npm/less@4"></script>
+
     <!-- Intercept some special link -->
-    <script src="/js/docsify-exit.js"></script>
+    <script src="/js/docsify-exit.js" async></script>
 
     <!-- Day-night toggle -->
-    <script src="js/day_night_toggle.js"></script>
-
-    <!-- Compile less files -->
-    <script src="https://cdn.jsdelivr.net/npm/less@4" ></script>
+    <script src="js/day_night_toggle.js" async></script>
 
     <!-- Dropdown Menu -->
-    <script src="/js/navdropdown.js"></script>
+    <script src="/js/navdropdown.js" async></script>
+
+    <!-- Random Article Script -->
+    <script src="/js/random_article.js" async></script>
 
   </body>
 
