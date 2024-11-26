@@ -24,6 +24,7 @@ File Structure:
 |       |   └── less
 |       |       └── ...
 |       ├── articles (Chinese articles in .md files)
+|       |   ├── pages.json (index for all articles, auto genereated)
 |       |   └── ... (classified according to _sidebar.md)
 |       ├── secret (off-topic things)
 |       ├── index.html (a html templete that docsify used to construct all other pages with .md files)
@@ -42,6 +43,7 @@ File Structure:
 ├── treasure_chest (pages or projects used in this website, displayed in the treasure_chest dropdown menu)
 |   └── ...
 |
+├── generate_files.py (a python script that generates json file of all articles)
 ├── 404.html (404 page)
 ├── index.html (the entry page for the whole website)
 ├── LICENSE  
