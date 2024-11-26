@@ -2,7 +2,7 @@
 A Simple Docsify Static Page for Homework.
 
 Contributors:
-JustAlkaid (Owner), Lucio-ball
+JustAlkaid (Owner), Lucio-ball, NoobProgrammer3105
 
 File Structure:
 ```
