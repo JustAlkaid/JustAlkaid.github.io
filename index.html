@@ -19,13 +19,13 @@
             
             <nav class="navbar">
                 <div class="navtitle">
-                    <img src="https://avatars.githubusercontent.com/u/72213408" alt="瑶光的头像！" id="logo">
+                    <img class="lazy" data-src="https://avatars.githubusercontent.com/u/72213408" src="/assets/img/index/loading.gif" alt="瑶光的头像！" id="logo">
                     <a class="headline" href="https://github.com/JustAlkaid">Alkaid</a>
                     <button id="themetoggleday">
-                        <img src="assets/svg/index/sun.svg" alt="日间模式" id="sun">
+                        <img class="lazy" data-src="/assets/svg/index/sun.svg" src="/assets/img/index/loading.gif" alt="日间模式" id="sun" width="25px" height="auto">
                     </button>
                     <button id="themetogglenight">
-                        <img src="/assets/svg/index/moon.svg" alt="夜间模式" id="moon">
+                        <img class="lazy" data-src="/assets/svg/index/moon.svg" src="/assets/img/index/loading.gif" alt="夜间模式" id="moon" width="25px" height="auto">
                     </button>
                     <div class="dropdown">
                         <a href="" target="_blank" class="dropbtn">语言</a>
@@ -39,15 +39,16 @@
                     <a href="/index.html">主页</a>
                     <a href="/docs/zh/index.html">文章</a>
                     <a href="/tags.html">标签</a>
-                    <a href="/projects.html">项目</a>
+                    <a href="https://github.com/JustAlkaid/JustAlkaid.github.io">项目</a>
                     <div class="dropdown">
                         <a href="" target="_blank" class="dropbtn">宝箱</a>
                         <div class="dropcontent">
-                            <a href="treasure_chest/canvas-nest.html">Canvas-Nest</a>
-                            <a href="treasure_chest/404.html">404页</a>
+                            <a href="/treasure_chest/canvas-nest.html">Canvas-Nest</a>
+                            <a href="/treasure_chest/404.html">404页</a>
+                            <a href="/treasure_chest/album.html">相册</a>
                         </div>
                     </div>
-                    <a href="">随机</a>
+                    <a href="javascript:void(0);" id="random-link">随机</a>
                 </div>
             </nav>
 
@@ -89,6 +90,12 @@
 
         <!-- Dropdown Menu -->
         <script src="js/navdropdown.js" async></script>
+
+        <!-- Random Article Script -->
+        <script src="/js/random_article.js" async></script>
+
+        <!-- Lazy Load -->
+        <script src="/js/lazyload.js"></script>
 
     </body>
 
