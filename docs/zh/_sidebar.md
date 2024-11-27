@@ -10,7 +10,7 @@
     * 1.
 
 * 程序设计哲学
-    * [把功能拆分为函数](./articles/philosophy/break_into_functions.md)
+    * [将功能封装成函数](./articles/philosophy/break_into_functions.md)
     * [如何写出可维护的代码](./articles/philosophy/code_properly.md)
 
 * 有用的小办法
