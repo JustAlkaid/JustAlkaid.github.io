@@ -17,12 +17,12 @@
     * [快捷键](./articles/useful_tips/hotkeys.md)
     * [将printf用于调试](./articles/useful_tips/use_of_printf)
     * [用断点让你的程序暂时停下来](./articles/useful_tips/use_of_breakpoint)
-    * [标准输入输出的重定向](./articles/useful_tips/redirect.md)
+    * [标准输入输出的重定向](./articles/useful_tips/io-redirecting.md)
 
 * 考场小技巧
-    * [如何审题](./articles/in_the_classroom/analyzing_the_question.md)
-    * [不同的题型有哪些？](./articles/in_the_classroom/different_types.md)
-    * [骗分与面向结果编程](./articles/in_the_classroom/earn_grades.md)
+    * [如何审题](./articles/in_the_classroom/how-to-understand-a-quiz.md)
+    * [不同的题型有哪些？](./articles/in_the_classroom/quiz-type.md)
+    * [骗分与面向结果编程](./articles/in_the_classroom/cheat-guide.md)
 
 * 在哪里找到更多学习资料？
     * [外链表](./articles/study_resources/link.md)
