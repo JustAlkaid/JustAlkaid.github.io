@@ -4,11 +4,6 @@
     * [回到首页！](/index.html)
     * [这个网页是什么？](README)
 
-* 从哪里开始
-
-* 知识点还记得多少
-    * 1.
-
 * 程序设计哲学
     * [将功能封装成函数](./articles/philosophy/break_into_functions.md)
     * [如何写出可维护的代码](./articles/philosophy/code_properly.md)
