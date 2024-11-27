@@ -24,6 +24,10 @@
     * [不同的题型有哪些？](./articles/in_the_classroom/quiz-type.md)
     * [骗分与面向结果编程](./articles/in_the_classroom/cheat-guide.md)
 
+* 工具箱
+    * [标准库函数速查表](./articles/toolbox/referenceSTD.md)
+    * [常用函数表](./articles/toolbox/templete.md)
+
 * 在哪里找到更多学习资料？
     * [外链表](./articles/study_resources/link.md)
     * [推荐知识点清单](./articles/study_resources/list.md)
