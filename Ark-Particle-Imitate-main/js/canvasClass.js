@@ -21,7 +21,7 @@ class Point {
 
     // 颜色
     let c = Math.floor(colorNum / 3);
-
+    this.cp = c;
     /** 纯数字rgb值 , 例: `255,255,255` */
     this.color = `${c},${c},${c}`;
   }
@@ -242,7 +242,7 @@ class DameDaneParticle {
   _InitParticle = (ImgData, rebuildParticle = false) => {
     if (!ImgData) ImgData = this._imgArr;
 
-    let imgW = this.ImgW, imgH = this.ImgH, cnt = 0;
+    let imgW = this.ImgW, imgH = this.ImgH, cnt = 0, tcolor = '';
 
     let arr = this.PointArr;
 
@@ -280,13 +280,21 @@ class DameDaneParticle {
       let len = arr.length, randIndex = 0, tx = 0, ty = 0;
       while (len) {
         randIndex = (Math.floor(Math.random() * len--));
-        tx = arr[randIndex].orx, ty = arr[randIndex].ory;
+        tx = arr[randIndex].orx;
+    ty = arr[randIndex].ory;
+    arr[randIndex].orx = arr[randIndex].nx = arr[len].orx;
+    arr[randIndex].ory = arr[randIndex].ny = arr[len].ory;
+    arr[len].orx = arr[len].nx = tx;
+    arr[len].ory = arr[len].ny = ty;
 
-        arr[randIndex].orx = arr[randIndex].nx = arr[len].orx,
-          arr[randIndex].ory = arr[randIndex].ny = arr[len].ory;
-
-        arr[len].orx = arr[len].nx = tx,
-          arr[len].ory = arr[len].ny = ty;
+    // 交换颜色
+    if (arr[randIndex].color && arr[len].color) {
+      tcolor = arr[randIndex].color;
+      arr[randIndex].color = arr[len].color;
+      arr[len].color = tcolor;
+    } else {
+      console.error('Color property is missing on one of the particles:', arr[randIndex], arr[len]);
+    }
       }
     }
 
@@ -296,6 +304,7 @@ class DameDaneParticle {
 
   /** 绘制到 canvas，**此项为内置 api， 不建议随便调用** */
   _Draw2Canvas = () => {
+    
     this.hasDraw = true
     const w = this.canvasEle.width, h = this.canvasEle.height;
     this.ctx.clearRect(0, 0, w, h);

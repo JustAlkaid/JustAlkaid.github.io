@@ -20,3 +20,22 @@ body {
   /* pointer-events: none; */
   cursor: url(../image/mouse.png) 0 0, pointer;
 }
+
+.back{
+  position: relative;
+  top: -95vh;
+  left: 0;
+  height: 8vh;
+  width: 10vw;
+  font-size: 45px;
+}
+.back a {
+  color: #75787b; /* 将颜色替换为你想要的颜色 */
+  text-decoration: none; /* 去掉下划线 */
+}
+.back:hover{
+    background: linear-gradient(90deg,rgba(249, 248, 248, 0.795) 0%,rgba(255, 255, 255, 0) 100%);
+}
+a:hover{
+    color: rgb(173, 161, 161);
+}
