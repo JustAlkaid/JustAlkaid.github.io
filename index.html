@@ -11,6 +11,13 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
         <link rel="stylesheet/less" type="text/css" href="stylesheet/less/nav.less">
         <link rel="stylesheet/less" type="text/css" href="stylesheet/less/index.less">
+        <script>
+            // 检查是否已经访问过 Start.html
+            if (!sessionStorage.getItem('visitedStart')) {
+                sessionStorage.setItem('visitedStart', 'true');
+                window.location.href = 'Start.html';
+            }
+        </script>
     </head>
 
     <body class="day">
@@ -46,6 +53,7 @@
                             <a href="/treasure_chest/canvas-nest.html">Canvas-Nest</a>
                             <a href="/treasure_chest/404.html">404页</a>
                             <a href="/treasure_chest/album.html">相册</a>
+                            <a href="/treasure_chest/Ark-Particle-Imitate-main/canvas_another.html">坍缩相册</a>
                         </div>
                     </div>
                     <a href="javascript:void(0);" id="random-link">随机</a>
