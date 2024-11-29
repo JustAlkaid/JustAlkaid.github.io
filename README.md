@@ -2,7 +2,7 @@
 A Simple Docsify Static Page for Homework.
 
 Contributors:
-JustAlkaid (Owner), Lucio-ball, NoobProgrammer3105, oran-gitversion
+JustAlkaid (Owner), Lucio-ball, NoobProgrammer3105, oran-gitversion, Dr-Muskr
 
 File Structure:
 ```
@@ -46,6 +46,7 @@ File Structure:
 ├── generate_files.py (a python script that generates json file of all articles)
 ├── 404.html (404 page)
 ├── index.html (the entry page for the whole website)
+└── Start.html (an entry animation) 
 ├── LICENSE  
 └── .nojekyll  
 ```
