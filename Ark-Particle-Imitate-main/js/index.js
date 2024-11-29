@@ -30,38 +30,22 @@ function img_1() {
   })
 }
 
-
-function img_4() {
-  const imgWidth = 180;
-  const imgHeight = 184;
-  const imgwww = 500;
-  DameDaneParticleDemo.ChangeImg('/assets/img/album_another/beihang.jpg', {
-    renderX: (window.innerWidth - imgwww) / 2-30, // 居中
-    renderY: (window.innerHeight - imgHeight/imgWidth * imgwww) / 2-50, // 居中
-    validColor: {
-      min: 300,
-      max: 765,
-      invert: false
-    },
-    w: imgwww
-  })
-}
-
-function img_5() {
+function Pt1() {
   const imgWidth = 361;
   const imgHeight = 184;
-  const imgwww = 500;
-  DameDaneParticleDemo.ChangeImg('/assets/img/album_another/chuanyuan.jpg', {
+  const imgwww = 800;
+  DameDaneParticleDemo.ChangeImg('/assets/img/album_another/Platinum_1.jpg', {
     renderX: (window.innerWidth - imgwww) / 2-30, // 居中
     renderY: (window.innerHeight - imgHeight/imgWidth * imgwww) / 2 - 100, // 居中
     validColor: {
-      min: 300,
+      min: 100,
       max: 765,
       invert: false
     },
     w: imgwww
   })
 }
+
 
 function Kaltsit() {
   const imgWidth = 361;
@@ -111,6 +95,23 @@ function Platinum() {
   })
 }
 
+function Amiya() {
+  const imgWidth = 361;
+  const imgHeight = 184;
+  const imgwww = 500;
+  DameDaneParticleDemo.ChangeImg('/assets/img/album_another/Amiya.jpg', {
+    renderX: (window.innerWidth - imgwww) / 2-30, // 居中
+    renderY: (window.innerHeight - imgHeight/imgWidth * imgwww) / 2 - 200, // 居中
+    validColor: {
+      min: 400,
+      max: 765,
+      invert: false
+    },
+    w: imgwww
+  })
+}
+
+
 
 
 function arknights() {
@@ -125,7 +126,7 @@ function arknights() {
 }
 
 // 定义一个数组存储所有的函数
-const changeImgFunctions = [img_1, Platinum,  Skadi, Kaltsit, img_4, img_5, arknights];
+const changeImgFunctions = [img_1, Pt1, Amiya, Platinum,  Skadi, Kaltsit, arknights];
 
 // 定义一个索引来跟踪当前调用的函数
 changeImgFunctions[0]();
@@ -141,4 +142,4 @@ setInterval(() => {
   
   // 更新索引，如果到达数组末尾则重置为 0
   currentIndex = (currentIndex + 1) % changeImgFunctions.length;
-}, 8000); // 5000 毫秒 = 5 秒
+}, 8500); // 5000 毫秒 = 5 秒
