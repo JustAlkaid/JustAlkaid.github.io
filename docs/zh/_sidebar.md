@@ -4,6 +4,13 @@
     * [回到首页！](/index.html)
     * [这个网页是什么？](README)
 
+* 知识点拓展
+    * 百变宏定义
+    * scanf 的妙用与正确输入
+    * 变量及其生命周期
+    * 100 行带你速通指针
+    * 禅与动态内存管理
+
 * 程序设计哲学
     * [将功能封装成函数](./articles/philosophy/break_into_functions.md)
     * [如何写出可维护的代码](./articles/philosophy/code_properly.md)
