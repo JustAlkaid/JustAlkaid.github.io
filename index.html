@@ -11,6 +11,13 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
         <link rel="stylesheet/less" type="text/css" href="stylesheet/less/nav.less">
         <link rel="stylesheet/less" type="text/css" href="stylesheet/less/index.less">
+        <script>
+            // 检查是否已经访问过 Start.html
+            if (!sessionStorage.getItem('visitedStart')) {
+                sessionStorage.setItem('visitedStart', 'true');
+                window.location.href = 'Start.html';
+            }
+        </script>
     </head>
 
     <body class="day">
