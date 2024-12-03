@@ -32,12 +32,13 @@
 | 7 | `void* calloc(size_t nitems, size_t size)` | 分配所需的内存空间，将这块内存空间的每一位置为0，并返回一个指向它的 void* 指针。|
 | 8	| `void free(void* ptr)` | 释放之前调用 calloc、malloc 或 realloc 所分配的内存空间。 |
 | 9	| `void* malloc(size_t size)` | 分配所需的内存空间，并返回一个指向它的void*指针。 |
-| 10 | `void* bsearch(const void* key, const void* base, size_t nitems, size_t size, int (*compar)(const void* a, const void* b))` | 二分查找。key 指向要查找的元素，base 指向进行查找的数组，nitems指定数组的长度，size 指定数组中每个元素的大小。数组的内容应根据 compar() 函数升序排序。一般要求 compar() 函数在 a > b时返回正值，a < b时返回负值， a = b 时返回0。 |
-| 11 | `void qsort(void* base, size_t nitems, size_t size, int (*compar)(const void* a, const void* b))` | 快速排序。base 指向进行查找的数组，nitems指定数组的长度，size 指定数组中每个元素的大小。数组的内容应根据 compar() 函数升序排序，compar() 函数的要求与 bsearch() 中的 compar() 函数相同。 |
-| 12 | `int abs(int x)` | 返回 x 的绝对值。 |
-| 13 | `long int labs(long int x)` | 返回 x 的绝对值。 |
-| 14 | `int rand(void)` | 返回一个范围在 0 到 RAND_MAX 之间的伪随机数。 将输出模 n 即可得到0 ~ n - 1 之间的随机数。|
-| 15 | `void srand(unsigned int seed)` | 该函数播种由函数 rand 使用的随机数发生器。 常用的写法是 srand((unsigned) time(&t)); 此代码以系统时间作为输入。|
+| 10 | `void* realloc(void* ptr, size_t size)` |  尝试重新调整之前调用 malloc 或 calloc 所分配的 ptr 所指向的内存块的大小。 |
+| 11 | `void* bsearch(const void* key, const void* base, size_t nitems, size_t size, int (*compar)(const void* a, const void* b))` | 二分查找。key 指向要查找的元素，base 指向进行查找的数组，nitems指定数组的长度，size 指定数组中每个元素的大小。数组的内容应根据 compar() 函数升序排序。一般要求 compar() 函数在 a > b时返回正值，a < b时返回负值， a = b 时返回0。 |
+| 12 | `void qsort(void* base, size_t nitems, size_t size, int (*compar)(const void* a, const void* b))` | 快速排序。base 指向进行查找的数组，nitems指定数组的长度，size 指定数组中每个元素的大小。数组的内容应根据 compar() 函数升序排序，compar() 函数的要求与 bsearch() 中的 compar() 函数相同。 |
+| 13 | `int abs(int x)` | 返回 x 的绝对值。 |
+| 14 | `long int labs(long int x)` | 返回 x 的绝对值。 |
+| 15 | `int rand(void)` | 返回一个范围在 0 到 RAND_MAX 之间的伪随机数。 将输出模 n 即可得到0 ~ n - 1 之间的随机数。|
+| 16 | `void srand(unsigned int seed)` | 该函数播种由函数 rand 使用的随机数发生器。 常用的写法是 srand((unsigned) time(&t)); 此代码以系统时间作为输入。|
 
 ## string.h
 

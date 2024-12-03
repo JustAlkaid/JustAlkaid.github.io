@@ -4,6 +4,13 @@
     * [回到首页！](/index.html)
     * [这个网页是什么？](README)
 
+* 知识点拓展
+    * [百变宏定义](./articles/knowledge_points/define.md)
+    * [scanf 的妙用与正确输入](./articles/knowledge_points/input_and_scanf.md)
+    * [变量的作用域与生命周期](./articles/knowledge_points/variable.md)
+    * [100 行带你速通指针](./articles/knowledge_points/pointer.md)
+    * [禅与动态内存管理](./articles/knowledge_points/dynamic_memory.md)
+
 * 程序设计哲学
     * [将功能封装成函数](./articles/philosophy/break_into_functions.md)
     * [如何写出可维护的代码](./articles/philosophy/code_properly.md)
