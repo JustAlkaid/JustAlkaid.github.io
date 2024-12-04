@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>Hello World!</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="description" content="Documents Homepage">
+    <meta name="author" name="Alkaid">
+    <meta name="keywords" content="HTML CSS JavaScript JS docsify MD Markdown">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <link id="theme-style" rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css">
+    <link rel="stylesheet/less" type="text/css" href="stylesheet/less/nav.less">
+  </head>
+
+  <body class="day">
+
+    <nav class="navbar">
+      <div class="navtitle">
+          <img class="lazy" data-src="https://avatars.githubusercontent.com/u/72213408" src="/assets/img/index/loading.gif" alt="Alkaid's Profile Picture" id="logo">
+          <a class="headline" href="https://github.com/JustAlkaid">Alkaid</a>
+          <button id="themetoggleday">
+              <img class="lazy" data-src="/assets/svg/index/sun.svg" src="/assets/img/index/loading.gif" alt="Day Style" id="sun" width="25px" height="auto">
+          </button>
+          <button id="themetogglenight">
+              <img class="lazy" data-src="/assets/svg/index/moon.svg" src="/assets/img/index/loading.gif" alt="Night Style" id="moon" width="25px" height="auto">
+          </button>
+          <div class="dropdown">
+              <a href="" target="_blank" class="dropbtn">Language</a>
+              <div class="dropcontent">
+                  <a href="/index.html">简体中文</a>
+                  <a href="/index_en.html">English</a>
+              </div>
+          </div>
+      </div>
+      <div class="navlinks">
+          <a href="/index_en.html">Home</a>
+          <a href="/docs/en/index.html">Articles</a>
+          <a href="/tags.html">Tags</a>
+          <a href="https://github.com/JustAlkaid/JustAlkaid.github.io">Project</a>
+          <div class="dropdown">
+              <a href="" target="_blank" class="dropbtn">Treasure</a>
+              <div class="dropcontent">
+                  <a href="/treasure_chest/canvas-nest.html">Canvas-Nest</a>
+                  <a href="/treasure_chest/404.html">404 Page</a>
+                  <a href="/treasure_chest/album.html">Album</a>
+                  <a href="/treasure_chest/Ark-Particle-Imitate-main/canvas_another.html">Collapse</a>
+              </div>
+          </div>
+          <a href="javascript:void(0);" id="random-link">Random</a>
+      </div>
+  </nav>
+
+    <!-- This div element includes all content in the docxified page -->
+    <div id="app"></div>
+
+    <!-- Docsify Settings -->
+    <script>
+    window.$docsify = {
+      loadSidebar: true,
+      name: '',
+      repo: '',
+      plugins: [
+        function(hook) {
+          var footer = `
+            <footer class="foot">
+              <p>@2024  |  BY: <a href="https://github.com/JustAlkaid" target="_blank">Alkaid</a></p>
+              <p>Powered by: <a href="https://docsify.js.org/" target="_blank">Docsify v4</a></p>
+              <p>All Rights Reserved.</p>
+            </footer>
+          `;
+
+          hook.afterEach(function(html) {
+            return html + footer;
+          });
+        }
+      ]
+    }
+    </script>
+
+    <!-- Docsify v4 -->
+    <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
+
+    <!-- Compile less files -->
+    <script src="https://cdn.jsdelivr.net/npm/less@4"></script>
+
+    <!-- Intercept some special link -->
+    <script src="/js/docsify-exit.js" async></script>
+
+    <!-- Day-night toggle -->
+    <script src="js/day_night_toggle.js" async></script>
+
+    <!-- Dropdown Menu -->
+    <script src="/js/navdropdown.js" async></script>
+
+    <!-- Random Article Script -->
+    <script src="/js/random_article.js" async></script>
+
+  </body>
+
+</html>
