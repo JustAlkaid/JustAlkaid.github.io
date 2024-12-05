@@ -5,13 +5,13 @@ window.onload = function(){
     var dots = new Array();
     var banner = document.getElementById('banner');
 
-    const picturesNum = 6; // 图片数量, 用于循环, 请根据实际图片数量修改
+    const picturesNum = 8; // 图片数量, 用于循环, 请根据实际图片数量修改
 
     for(var i = 1; i <= picturesNum; i++){
         var lbli = document.createElement('li');
         var lbimg = document.createElement('img');
 
-        lbimg.src = "/assets/img/index/album/pic" + i + ".jpg";
+        lbimg.src = "/assets/img/index/album/pic" + i + ".png";
 
         lbli.appendChild(lbimg);
 
