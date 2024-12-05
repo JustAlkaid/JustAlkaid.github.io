@@ -19,10 +19,10 @@
             <nav>
                 <div id="toggle-container">
                     <button id="themetoggleday">
-                        <img src="/assets/svg/index/sun.svg" alt="日间模式" id="sun">
+                        <img class="lazy" data-src="/assets/svg/index/sun.svg" src="/assets/img/index/loading.gif" alt="日间模式" id="sun" width="25px" height="auto">
                     </button>
                     <button id="themetogglenight">
-                        <img src="/assets/svg/index/moon.svg" alt="夜间模式" id="moon">
+                        <img class="lazy" data-src="/assets/svg/index/moon.svg" src="/assets/img/index/loading.gif" alt="夜间模式" id="moon" width="25px" height="auto">
                     </button>
                     <a href="/index.html">
                         <button id="return-home">
@@ -58,6 +58,9 @@
 
         <!-- Sidebar Display -->
         <script src="/js/sidebar.js" async></script>
+
+        <!-- Lazy Load -->
+        <script src="/js/lazyload.js"></script>
 
     </body>
 
