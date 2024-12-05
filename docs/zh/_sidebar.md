@@ -8,7 +8,7 @@
     * [百变宏定义](./articles/knowledge_points/define.md)
     * [scanf 的妙用与正确输入](./articles/knowledge_points/input_and_scanf.md)
     * [变量的作用域与生命周期](./articles/knowledge_points/variable.md)
-    * [100 行带你速通指针](./articles/knowledge_points/pointer.md)
+    * [12 问带你速通指针](./articles/knowledge_points/pointer.md)
     * [禅与动态内存管理](./articles/knowledge_points/dynamic_memory.md)
 
 * 程序设计哲学
