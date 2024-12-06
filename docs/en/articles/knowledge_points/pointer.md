@@ -168,14 +168,28 @@ Result:
 The address in the output may be different each time it is executed.
 
 ## Relationship between pointers and arrays
-Arrays and pointers are two **different** data types. However, due to certain design features of C, array names can often be used as pointers as well.
+Arrays and pointers are two **different** data types. Take the following example:
+
+```C
+int a[10];
+int* p = a;
+printf(“%zu\n%zu”, sizeof(a), sizeof(p));
+```
+Result:
+```C
+> 40 (assuming int occupies 4 bytes on the device used)
+> 4 (assuming 32-bit system/compiler)
+```
+As you can see, using the `sizeof()` operator on an array gives you the number of bytes occupied by the entire array, whereas using `sizeof()` on a pointer only gives you the number of bytes occupied by the pointer itself.
+
+However, due to a series of C language designs (known as Array-to-Pointer Decay), array names can often be used as pointers as well.
 
 1. In the vast majority of expressions that require an address, the array name is implicitly converted to a pointer to its first element:
     ```C
     char a[10] = “bilibili”;
     char* p = a;        //a is converted to &a[0], so this line is actually char* p = &a[0]
     ```
-    The situation is pretty much the same for multidimensional arrays, except that it produces array pointers:
+    The situation is pretty much the same for multidimensional arrays, except that it produces  pointers to arrays:
     ```C
     char a[2][10] = {“Hello”, “World”};
     char (*p)[10] = a;  // actually char (*p)[10] = &a[0]
@@ -185,3 +199,277 @@ Arrays and pointers are two **different** data types. However, due to certain de
     ```C
     > World
     ```
+2. Arrays appearing in a function's formal parameter list are converted to pointers to the types their elements have. This means that the following three function prototypes are identical (for the compiler):
+    ```C
+    void printArray(int* array);        //pointer
+    void printArray(int array[]);       //written as an array but omitting the length, treated as a pointer by the compiler
+    void printArray(int array[16384]);  //written as an array and the length is specified, but the compiler ignores the length and treats it as a pointer
+    ```
+    Multidimensional arrays are **arrays whose elements are arrays**, so when they are written in a function's formal parameter list, they are considered to be pointers to arrays. Therefore the following three function prototypes are also identical:
+    ```C
+    void print2DArray(int (*arr)[4], int rows); //array pointer
+    void print2DArray(int arr[][4], int rows);  //treated as an array pointer by the compiler
+    void print2DArray(int arr[2][4], int rows); //also treated as an array pointer by the compiler
+    ```
+
+3. Array names appearing in a function's actual parameter list are also implicitly converted to pointers to their first elements:
+    ```C
+    void printArray(int array[]);
+    //...
+    int a[3] = {0, 1, 2};
+    printArray(a);
+    printArray(&a[0])       // Same as the previous line
+    ```
+    The situation is similar for multidimensional arrays, which are implicitly converted to pointers to arrays:
+    ```C
+    void print2DArray(int arr[][4], int rows);
+    //...
+    int a[2][2]= {{0, 1}, {2, 3}};
+    print2DArray(a, 2);
+    print2Darray(&a[0], 2); // same as previous rows
+    ```
+
+## Top-level const? Low-level const?
+*My strategy of remembering: the keyword **nearest after** the `const` is a constant.*
+
+This is the top-level `const`, which indicates that the value of the pointer itself (the memory address at which the pointer is stored) cannot be modified:.
+```C
+int a = 10;
+int b = 20;
+int* const p = &a; //top level const
+*p = 64;           //modification of *p has nothing to do with the top-level const
+p = &b;            //modifies the value of p (the memory address where p is stored), triggering a compile error
+```
+*the keyword nearest after the `const` is `p`, then `p` is a constant.*
+
+This is the low-level `const`, which indicates a pointer to a constant.
+```C
+int a = 10;
+const int b = 20;
+const int* p = &b;  //low-lwvwl const
+p = &a;             //modifying the value of p (the memory address where p is stored) has nothing to do with the low-level const
+a = 8192;           /* there's no way to modify the value of a via *p, but a itself is not a constant and can be modified directly
+                     * - so it doesn't make any sense if the underlying const pointer isn't pointing to a constant.
+                     */
+*p = 64;            //modifies the value of *p, triggering a compilation error.
+```
+*the keyword nearest after the `const` is `int*`, then `int*` is the constant.*
+
+The two `const`s can also be used together.
+```C
+const int a = 64;
+const int b = 256;
+const int* const p = &a.
+*p = 1; //that doesn't work
+p = &b; //that doesn't work either
+```
+*Much simpler, isn't it?*
+
+## Pointer to arrays? Or array of pointers?
+
+A pointer to arrays is a **pointer** and an array of pointers is an **array**.  
+In more detail, pointers to arrays are **pointers point to arrays** and arrays of pointers are **arrays whose elements are pointers**.  
+*(sigh) Yes, there's a lot of operator precedence and combinability issues here too. *
+
+```C
+int (*a)[20];   // creates a pointer to arrays of type int(*)[20]
+int* b[20];     // creates an array of pointers b whose every element is an int* pointer
+```
+
+As with other pointers, the type of a pointer to arrays tells the program that the memory address it points to should be interpreted as an array.
+
+```C
+int (*a)[20] = (int*[20])calloc(20, sizeof(int)); //*a is an array with 20 int elements
+printf(“%d”, (*a)[5]);                            // access the 5th element of this array
+```
+Result:
+```C
+> 0
+```
+
+An array of pointers is **just** an array whose elements are pointers. That's all.
+```C
+int* p[10];                               //create an array p with 10 elements of type int*
+for (int i = 0; i < 10; ++i) {
+    p[i] = (int*)calloc(10, sizeof(int)); //allocate a block of memory for each element of p - the int* pointer
+}
+```
+
+## Pass by value? Pass by pointer?
+The presence of ordinary variables in a function's formal parameter list is called **pass by value**. In this case, the formal parameter is a copy of the value of the actual parameter, and changes made to the formal parameter inside the function do not affect the actual parameter.
+```C
+void modifyValue(int x) {
+    x += 114514;
+    x *= 1919;
+}
+int main() {
+    int a = 1;
+    modifyValue(a); //the modfiyValue() function does not have any effect on a in the main() function
+    printf(“%d”, a); 
+    return 0; 
+}
+```
+Result:
+```C
+> 1
+```
+
+The presence of a pointer in the list of formal parameters of a function is called **passing by pointer**.
+```C
+void modifyValue(int* x) {
+    *x += 114514;
+    *x *= 1919;
+}
+int main() {
+    int a = 1;
+    modifyValue(&a); //the modfiyValue() function modifies a of the main() function
+    printf(“%d”, a); 
+    return 0;
+}
+```
+Result:
+```C
+> 219752366
+```
+
+*Think about it, the pointer itself is passed by value - if you modify the value of the formal parameter x - so that it points to another block of memory, it certainly doesn't move the real parameter a from one part of memory to another.*  
+*Whereas real parameters are passed by pointer - the modfiyValue() function gets the address of the real parameter a, and can modify the value of a via the pointer x.*   
+*However, the main() function can do nothing but helplessly watch everything happen. :(*
+
+There are several application scenarios for pass-by-pointer:
+
+1. Passing by pointer allows a function to modify the value of a variable that does not belong to it. For example, the `scanf()` function requires the addresses of the variables to be passed in (also passed by pointer) so that it can modify the values of those variables with data obtained from standard input. In contrast, the `printf()` function does not need to modify the values of the incoming variables in order to output data to the standard output, so it uses pass-by-value.
+
+2. A function can only return one value, if the function needs to output more than one value, you can utilize pass-by-pointer - add a few extra pointers to the function's parameter list, and just put in the values that can't be returned. For example, the `modf()` function in `<math.h>`:
+    ```C
+    double modf(double x, double* integer) /* decompose x into an integer part and a fractional part, return the fractional part, 
+                                            * and set *integer to the integer part.
+                                            */
+    ```
+
+3. If the data to be passed does not need to be modified, but its type is very complex, occupies a large amount of memory, then the transfer by value will require the CPU to take a lot of time to copy the data from one piece of memory to another - this is obviously not economical. This is where pass-by-pointer can be utilized by passing a `const` pointer to the function. The pointer variable itself takes up a small amount of memory, which saves time copying the data, and the `const` keyword prevents accidental modification of important data.
+     ```c
+    struct student{
+        int num;
+        int score;
+        int age;
+        char name[100];
+    }; // Complex data types take up a lot of memory
+    typedef sturct student student
+    void printStudentInfo(const student* stu) { //pass in const pointer to save copying time and avoid accidental changes
+        //do something
+    }
+    ```
+
+To summarize:
+- Passing by value is suitable for passing simple data types and data that don't need to be modified.
+- Passing by pointer is suitable for passing complex data types, data that need to be modified, as well as for receiving multiple output values from the function. However, note that if you are passing complex data structures that do not need to be modified by pointers, always use `const` pointers to avoid accidental modifications.
+
+## What is a void* pointer?
+`void*` is a special type of pointer that tells a program **not to make any special interpretations** of the memory address pointed to by that pointer.  
+```C
+void* malloc(size_t size) /* The malloc() function doesn't know what you're going to do with the allocated memory,
+                           * so it returns a void* pointer that says it doesn't make any interpretations about the data in this memory.
+                           */
+```
+You **shouldn't** do anything with a `void*` pointer until you perform a type casting. It doesn't make sense to do anything other than a type casting (such as self-incrementing, self-decrementing, and dereferencing) with a `void*` pointer.
+
+```C
+int a = 1919810;
+void* p = &a.
+p++;                //Meaningless! Compile error, not allowed
+printf(“%c”, *p);   //Meaningless! Compile error, not allowed
+```
+
+A `void*` pointer can be implicitly cast by the compiler to any pointer type (the casting is done automatically by the compiler and does not generate any compile warnings), and in turn, any other pointer can be implicitly cast by the compiler to a `void*` pointer. This can cause many dangerous problems, such as undefined behavior (behavior whose result is not explicitly specified in the C language standard and which may have undefined consequences).
+
+```C
+int a = 0721;       //this is actually an octal number
+int* p = &a.
+void* q = p;        //implicit type casting! No compile warnings were triggered
+float* r = q;       //implicit type casting! No compile warnings were triggered
+printf(“%f”, *r);   //Undefined behavior! The program tries to interpret an area of memory holding int data as a float integer
+```
+
+Therefore, it is recommended to always perform forced type casting on `void*` pointers.
+
+The `void*` pointer is often used to design interfaces to various generic functions. An example is the familiar `qsort()` function:
+```C
+void qsort(void* base, size_t num, size_t size, int (*compare)(const void* a, const void* b));
+```
+The `qsort()` function can sort arrays of any data type, which takes advantage of the fact that the `void*` pointer `base` can be passed data of any data type. Just pass the size of each element in the array with the `size` parameter, and use the `compare()` function to specify the comparison method.
+
+```C
+struct student{                         //If you don't know what a struct is already, skip this
+    int age;
+    char name[100];
+};
+typedef struct student student;
+//input data
+int comp(const void* a, const void* b) { //create specific comp() function for each data type to be sorted
+    return ((student*)a)->age - ((student*)b)->age; } 
+}
+qsort(&a, 100, sizeof(student), comp);
+//qsort() doesn't actually know what it's sorting, it just knows that each sizeof(student) byte is a unit of data.
+//Pass two data into the comp() function to know which is bigger, by which the sorting can be done.
+```
+
+## What is a function pointer?
+A function pointer is also a pointer. But its data type tells the program to **interpret the memory address pointed to by this pointer as a function**.
+```C
+int add(int a, int b) {
+    return a + b;
+}
+int (*p)(int a, int b) = add; //create a pointer p of type int(int, int)
+```
+
+Defining a function pointer is as simple as writing a correct function prototype and subsequently replacing the function name with `(*<pointer name>)` (note the parentheses; the combinatory nature of the operator makes this parenthesis necessary).
+
+```C
+//step 1
+void processArray(int array[], int size);
+//step 2
+void (*ptr)(int array[], int size).
+```
+
+The type of a function pointer contains the type of return value and the list of formal parameters of the function it points to. Variable names, function names, etc. don't mean anything to a compiler (names are for programmers), so any of the following code defines a legal function pointer:
+```C
+int (*p)(int a, int b); //the compiler automatically ignores the variable names a and b
+int (*q)(int, int);     //not much different from the previous one for the compiler, but much less human-friendly
+```
+
+Dereferencing a function pointer gives you the function itself it points to. Thus you can call a function with a function pointer. Note that due to the combining nature of the operators, you need to wrap the dereference operator and the pointer name in parentheses.
+
+```C
+int add(int a, int b) {
+    return a + b;
+}
+int (*p)(int, int) = add;
+printf(“%d”, (*p)(2, 3)); //dereference p, get the function add(), then pass in arguments 2 and 3
+```
+Result:
+```C
+> 5
+```
+
+The C language also provides a simplified way of writing functions that allows programmers to use function pointers like function names:
+```C
+int add(int a, int b) {
+    return a + b;
+}
+int (*p)(int, int) = add;
+printf(“%d”, p(2, 3)); // p(2, 3) is no different from (*p)(2, 3)
+```
+Result:
+```C
+> 5
+```
+
+The usage about function pointers is that they allow a function to be passed as an argument to another function, thus increasing the generality of the function. Still using the `qsort()` function as an example:
+```C
+void qsort(void* base, size_t num, size_t size, int (*compare)(const void* a, const void* b));;
+```
+
+Users can create their own comparison functions, and by passing in `qsort()` with a function pointer, they can have `qsort()` compare the elements in the array according to their own specified rules, and thus sort them.
+
+*If a function is passed as an argument to another function in the form of a function pointer, that function is called a **callback function**.*
