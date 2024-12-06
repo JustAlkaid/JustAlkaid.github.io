@@ -8,7 +8,7 @@
     * [Wonders of macro](./articles/knowledge_points/define.md)
     * [The maximize the use of scanf and proper input](./articles/knowledge_points/input_and_scanf.md)
     * [Scope and life cycle of variables](./articles/knowledge_points/variable.md)
-    * [100 Lines to understand Pointers](./articles/knowledge_points/pointer.md)
+    * [12 Questions to understand Pointers](./articles/knowledge_points/pointer.md)
     * [Zen and Dynamic Memory Management](./articles/knowledge_points/dynamic_memory.md)
 
 * Programming Philosophy
